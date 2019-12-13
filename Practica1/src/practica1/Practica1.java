@@ -20,4 +20,7 @@ public class Practica1 {
         f.setVisible (true);
     }
     
+    
+  
+    
 }
