@@ -18,6 +18,7 @@ public class Intefaz extends javax.swing.JFrame {
     int pasajeros = 0;
     int desabordaje = 0;
     int mantenimiento = 0;
+    int pasajeros_M[][] = new int[pasajeros][4];
 
     /**
      * Creates new form Intefaz
@@ -428,7 +429,8 @@ public class Intefaz extends javax.swing.JFrame {
         Texto.append("Escritorios de registro" + "\n");
         Texto.append("- - - - - - - -" + "\n");
 
-        Pasajeros pasajeros_M[][] = new Pasajeros[pasajeros][4];
+        
+        
 
     }
 
@@ -455,10 +457,25 @@ public class Intefaz extends javax.swing.JFrame {
                 }
 
                 this.maletas_totales = this.maletas_totales + maletas;
+                Pasajeros pasajero = new Pasajeros(maletas, documentos, turnos, k);
+                
+                //pasajeros_M[j][i]= pasajero;
 
             }
 
         }
+        }
+        Texto.append("\n");
+        Texto.append("- - - - - - - - - - - -"+"\n");
+        Texto.append("LISTADO DE MALETAS"+"\n");
+        String List_maletas[]= new String[this.maletas_totales];
+        for (int i = 0; i < this.pasajeros; i++) {
+            for (int j = 0; j <maletas; j++) {
+                
+                List_maletas[i]= i+"-"+j;
+                Texto.append(List_maletas[i]+"\n");
+            }
+            
         }
         
 
@@ -485,9 +502,12 @@ public class Intefaz extends javax.swing.JFrame {
 
         this.aviones++;
         Texto.append("- - - - - - - - - - - - - -" + "\n");
+        
+        
         Texto.append("TURNO NUMERO:     " + this.turnoactual + "\n");
         Texto.append("TURNO SIGUIENTE:     " + (this.turnoactual + 1) + "\n");
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Cant_aviones;
